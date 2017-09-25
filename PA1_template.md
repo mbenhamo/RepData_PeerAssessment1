@@ -79,6 +79,24 @@ with(tot_step,hist(total.steps,breaks = 10,col="#386cb0",xlab = "Total number of
 
 ![](PA1_template_files/figure-html/unnamed-chunk-5-1.png)<!-- -->
 
+```r
+dev.copy(png,"Figures/Total number of steps.png", width=480, height=480)
+```
+
+```
+## png 
+##   3
+```
+
+```r
+dev.off()
+```
+
+```
+## png 
+##   2
+```
+
 #### Calculating the mean and median of total steps per day:
 
 ```r
@@ -115,6 +133,24 @@ p
 ```
 
 ![](PA1_template_files/figure-html/unnamed-chunk-7-1.png)<!-- -->
+
+```r
+dev.copy(png,"Figures/Average number of steps per interval.png", width=480, height=480)
+```
+
+```
+## png 
+##   3
+```
+
+```r
+dev.off()
+```
+
+```
+## png 
+##   2
+```
 
 #### Finding the 5 minute interval with the maximum number of steps:
 
@@ -185,6 +221,24 @@ with(tot.step,hist(total.steps,breaks = 10,col="#f0027f",xlab = "Total number of
 ```
 
 ![](PA1_template_files/figure-html/unnamed-chunk-12-1.png)<!-- -->
+
+```r
+dev.copy(png,"Figures/Total number of steps without NA.png", width=480, height=480)
+```
+
+```
+## png 
+##   3
+```
+
+```r
+dev.off()
+```
+
+```
+## png 
+##   2
+```
 
 #### Calculating the mean and median of total steps per day:
 
@@ -269,3 +323,21 @@ p + facet_grid(day ~ .)
 ```
 
 ![](PA1_template_files/figure-html/unnamed-chunk-15-1.png)<!-- -->
+
+```r
+dev.copy(png,"Figures/Panel plot.png", width=480, height=480)
+```
+
+```
+## png 
+##   3
+```
+
+```r
+dev.off()
+```
+
+```
+## png 
+##   2
+```

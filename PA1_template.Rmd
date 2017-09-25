@@ -38,9 +38,12 @@ tot_step
 ```
 
 #### Creating a histogram of total number of steps per day:
-```{r}
+```{r message=FALSE, warning=FALSE}
 with(tot_step,hist(total.steps,breaks = 10,col="#386cb0",xlab = "Total number of steps taken [per day]",
                    main = "Histogram of total number of steps taken per day"))
+
+dev.copy(png,"Figures/Total number of steps.png", width=480, height=480)
+dev.off()
 ```
 
 #### Calculating the mean and median of total steps per day:
@@ -57,7 +60,7 @@ med <- median(tot_step$total.steps)
 
 #### Calculating the average number of steps per interval accross all days
 #### And then generating a time series plot of the average steps per interval:
-```{r}
+```{r message=FALSE, warning=FALSE}
 ave_dat <- dat %>% group_by(interval) %>% summarise(mean.steps = mean(steps,na.rm = TRUE))
 ave_dat <- data.frame(ave_dat)
 p <- ggplot(ave_dat,aes(x = interval,y = mean.steps)) +
@@ -75,6 +78,9 @@ p <- ggplot(ave_dat,aes(x = interval,y = mean.steps)) +
            axis.ticks.length = unit(.15, "cm"),
            plot.title = element_text(face="bold",size = 14, colour = "black",hjust = 0.5))
 p
+
+dev.copy(png,"Figures/Average number of steps per interval.png", width=480, height=480)
+dev.off()
 ```
 
 #### Finding the 5 minute interval with the maximum number of steps:
@@ -108,9 +114,12 @@ tot.step
 ```
 
 #### Creating a histogram of total number of steps per day:
-```{r}
+```{r message=FALSE, warning=FALSE}
 with(tot.step,hist(total.steps,breaks = 10,col="#f0027f",xlab = "Total number of steps taken [per day]",
                    main = "Histogram of total number of steps taken per day"))
+
+dev.copy(png,"Figures/Total number of steps without NA.png", width=480, height=480)
+dev.off()
 ```
 
 #### Calculating the mean and median of total steps per day:
@@ -134,7 +143,7 @@ head(new_dat)
 ```
 
 #### Creating a panel plot of average number of steps per interval
-```{r}
+```{r message=FALSE, warning=FALSE}
 ave.dat <- new_dat %>%
     group_by(day,interval) %>%
     summarise(mean.steps = mean(steps,na.rm = TRUE))
@@ -157,4 +166,7 @@ p <- ggplot(ave.dat,aes(x = interval,y = mean.steps,color = day)) +
            plot.title = element_text(face="bold",size = 14, colour = "black",hjust = 0.5),
            legend.position = "n")
 p + facet_grid(day ~ .)
+
+dev.copy(png,"Figures/Panel plot.png", width=480, height=480)
+dev.off()
 ```
